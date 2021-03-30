@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    参考
+    https://techplay.jp/column/581
+    promiseとは
+    https://www.notion.so/Promise-async-await-fca97a2454174b7289cad15986d4ca9e#acb5b99244994c138a98640f5d2767dc
+    https://jsprimer.net/basic/async/
+    <script>
+       var sample = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                resolve();
+            }, 1000);
+        });
+
+sample.then(function(value) {
+    console.log("Promise成功!");
+});
+
+console.log("先に出力");
+    </script>
+    
+</body>
+</html>
