@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div>
+      <ul></ul>
+    </div>
+</body>
+
+<script>
+    let t = document.querySelector('ul');
+    console.log(t);
+    let liDom = document.createElement("li");
+    let aDom = document.createElement("a");
+    let imgDom = document.createElement("img");
+    imgDom.src = "bookmark.png";
+    imgDom.alt = "ブックマーク";
+    aDom.href = "1.html";
+    aDom.innerHTML = "これです";
+    liDom.append(imgDom);
+    liDom.append(aDom);
+    t.append(liDom);
+    
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.hypertextcandy.com/vanilla-javascript-form#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%85%A5%E5%8A%9B">フォームの処理</a><br>
+    <a href="https://code-kitchen.dev/html/input-file/">フォーム解説</a>
+    <h3>フォーム</h3>
+    <form action="" enctype="multipart/form-data" multiple><!--multipleは複数ファイルを受け付ける-->
+        <input type="file" name="file_example" accept=".png, .jpg, .jpeg, .pdf, .doc"><br>
+        <input type="file" name="file_example" accept=".png, .jpg, .jpeg, .pdf, .doc"><br>
+        <input type="file" name="file_example" accept=".png, .jpg, .jpeg, .pdf, .doc"><br>
+        <button button="submit">送信</button>
+
+    </form>
+
+    
+</body>
+
+<script>
+    let file = document.querySelector('input[type="file"]');
+    file.addEventListener('change', f => {
+        console.log("ファイルが入りました");
+        console.log(f.target.files);
+    })
+</script>
+</html>
