@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>参考</h3>
+    <a href="https://techplay.jp/column/581">promiseとは</a>
+    
+    <a href="https://www.notion.so/Promise-async-await-fca97a2454174b7289cad15986d4ca9e#acb5b99244994c138a98640f5d2767dc">参考2</a>
+    <a href="https://jsprimer.net/basic/async/">参考3</a>
+
+    <div>
+        <ul>
+            <img src="./img/loading-circle.gif" alt="">
+        </ul>
+    </div>
+    
+<script>
+    
+    let testpromise = new Promise(function(resolve, reject) {
+        /*
+        出しわけする場合
+        try{
+            setTimeout(() => {
+                resolve("ハローワールド");
+
+            },1000);
+        }catch{
+            reject("失敗");
+        }
+        */
+       setTimeout(function(){
+           reject("レッスン08、失敗");
+
+       },3000);
+
+    });
+
+    
+
+    testpromise.then(function(value) {
+        console.log("Promise成功!");
+        let img = document.querySelector('img');
+        img.style.display = "none";
+        
+
+
+        let array = [
+            {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
+            {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
+        ];
+        let t = document.querySelector('ul');
+        
+        let l1 = document.createElement('li');
+        let l2 = document.createElement('li');
+        let a1 = document.createElement('a');
+        let a2 = document.createElement('a');
+        let img1 = document.createElement("img");
+        let img2 = document.createElement("img");
+        
+        a1.href = array[0].to;
+        img1.src = array[0].img;
+        img1.alt = array[0].alt;
+        a1.append(img1);
+        a1.innerHTML = array[0].text;
+
+        a2.href = array[1].to;
+        img2.src = array[1].img;
+        img2.alt = array[1].alt;
+        a2.append(img2);
+        a2.innerHTML = array[1].text;
+
+
+        l1.append(a1);
+        l2.append(a2);
+
+
+        t.append(l1);
+        t.append(l2);
+
+    }).
+    catch((err) => {
+        console.log("こちらs！")
+        console.log(err);
+    });
+
+    
+
+
+    
+</script>
+    
+</body>
+</html>
