@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>アロー関数/if文のショートハンド</h2>
+    <p>コンソール内で確認</p>
+    <a href="https://qiita.com/may88seiji/items/4a49c7c78b55d75d693b">参考</a>
+    <script>
+        let noArgument = () => console.log("引数なしのアロー関数です");
+        let oneArgument = hikisuu => console.log("引数は一つ：" + hikisuu + "です");
+
+        console.log("アロー関数です");
+        noArgument();
+        oneArgument("1引数");
+        
+
+        //if文のショートハンド
+        let sansyo1 = "1だ";
+        let sansyo2 = "1だ";
+        let hogege = sansyo1 === sansyo2 ? '一緒' : '違う';
+        console.log("ショートハンド");
+        console.log(hogege);
+
+    </script>
+</body>
+</html>
