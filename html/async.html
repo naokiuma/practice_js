@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>参考</h3>
+    <a href="https://qiita.com/soarflat/items/1a9613e023200bbebcb3">async awaitについて/qiita</a>
+    <a href="https://www.notion.so/Promise-async-await-fca97a2454174b7289cad15986d4ca9e#eba9ace765ba4a7ca4a11118c3acf1be">promise 勉強会</a>
+    <a href="https://jsprimer.net/basic/async/">jsPrimer</a>
+
+    <div>
+        <ul>
+            <img src="./img/loading-circle.gif" alt="">
+        </ul>
+    </div>
+    
+<script>
+
+
+async function resolveSample(){
+
+}
+    
+/*
+    //promiseを簡単に書いている
+    async function resolveSampe(){
+        return 'resolveです';
+    }
+
+    resolveSampe().then(
+        value => {
+            console.log("やった");
+            console.log(value);
+            document.querySelector('img').style.display = "none";
+        }
+    );
+*/  
+
+//以下はpromiseの動き
+/*
+const promise = new Promise((resolve, reject) => {
+  window.setTimeout(() => {
+    resolve('OK');
+  }, 2000);
+});
+
+promise
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+});
+*/
+
+</script>
+    
+</body>
+</html>
