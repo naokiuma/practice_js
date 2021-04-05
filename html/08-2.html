@@ -22,32 +22,15 @@
 <script>
     
     let testpromise = new Promise(function(resolve, reject) {
-        /*
-        出しわけする場合
-        try{
-            setTimeout(() => {
-                resolve("ハローワールド");
-
-            },1000);
-        }catch{
-            reject("失敗");
-        }
-        */
        setTimeout(function(){
            reject("レッスン08、失敗");
-
        },3000);
-
     });
-
-    
 
     testpromise.then(function(value) {
         console.log("Promise成功!");
         let img = document.querySelector('img');
         img.style.display = "none";
-        
-
 
         let array = [
             {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"},
