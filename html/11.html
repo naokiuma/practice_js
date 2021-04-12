@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>参考</h3>
+    <a href="https://techplay.jp/column/581">promiseとは</a>
+    
+    <a href="https://www.notion.so/Promise-async-await-fca97a2454174b7289cad15986d4ca9e#acb5b99244994c138a98640f5d2767dc">参考2</a>
+    <a href="https://jsprimer.net/basic/async/">参考3</a>
+
+    <a href="https://ja.javascript.info/async-await">こちら一番分かりやすかった。</a>
+    <div>
+        <ul>
+            <img src="./img/loading-circle.gif" alt="">
+        </ul>
+    </div>
+    
+
+<script>
+
+    async function ten(){
+    
+        try{
+            let testpromise = new Promise((resolve, reject) =>  {
+                setTimeout(() => resolve("完了"),2000)
+            });
+            let result = await testpromise;//上のtestpromiseが実施されるまでawaitで待つ。
+            console.log(result);
+            //待った後、下記の処理が実施されていく
+            let array = fetch("https://jsondata.okiba.me/v1/json/i5T50210412160439")
+            .then(response => response.json())
+            .then(data => console.log(data));
+            
+            
+    
+            
+            //console.log(array);
+            let img = document.querySelector('img');
+            img.style.display = "none";
+            let t = document.querySelector('ul');
+            let l1 = document.createElement('li');
+            let l2 = document.createElement('li');
+            let a1 = document.createElement('a');
+            let a2 = document.createElement('a');
+            let img1 = document.createElement("img");
+            let img2 = document.createElement("img");
+            
+            a1.href = data[0].a;
+            img1.src = data[0].img;
+            img1.alt = data[0].alt;
+            a1.append(img1);
+            a1.innerHTML = data[0].text;
+            a2.href = data[1].a;
+            img2.src = data[1].img;
+            img2.alt = data[1].alt;
+            a2.append(img2);
+            a2.innerHTML = data[1].text;
+            l1.append(a1);
+            l2.append(a2);
+            t.append(l1);
+            t.append(l2);
+            return ("finished")
+            
+        }catch(error){
+            console.log("エラーが発生しました");
+            console.log(error);
+        }finally{
+            console.log( "全ての処理が完了しました。");
+        }
+        
+    }
+    
+    //----------------------------------------------------------
+    //処理のパターン1.2
+    //コンソールでは返さずに処理のみする
+    ten()
+    //上の処理に加え、thenでreturn したプロミスをコンソールにて返している。
+</script>
+    
+</body>
+</html>
