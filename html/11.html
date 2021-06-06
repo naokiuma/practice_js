@@ -23,9 +23,10 @@
 
 <script>
 
-    async function ten(){
+    async function eleven(){
     
         try{
+            
             let testpromise = new Promise((resolve, reject) =>  {
                 setTimeout(() => resolve("完了"),2000)
             });
@@ -78,7 +79,7 @@
     //----------------------------------------------------------
     //処理のパターン1.2
     //コンソールでは返さずに処理のみする
-    ten()
+    eleven()
     //上の処理に加え、thenでreturn したプロミスをコンソールにて返している。
 </script>
     
