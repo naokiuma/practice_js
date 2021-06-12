@@ -31,68 +31,35 @@
                 setTimeout(() => resolve("完了"),2000)
             });
             let result = await testpromise;//上のtestpromiseが実施されるまでawaitで待つ。
-            console.log(result + "です");
-
-            const fetchpromise = fetch('https://jsondata.okiba.me/v1/json/i5T50210412160439');
-
-            const jsonres = fetchpromise.then(function(res){
-                return res.json();
-
-            })
-
-            jsonres.then(function(api){
-                console.log(api);
-
-                
-                let img = document.querySelector('img');
-                img.style.display = "none";
-                let t = document.querySelector('ul');
-                let l1 = document.createElement('li');
-                let l2 = document.createElement('li');
-                let a1 = document.createElement('a');
-                let a2 = document.createElement('a');
-                let img1 = document.createElement("img");
-                let img2 = document.createElement("img");
-                
-                a1.href = api.data[0].a;
-                img1.src = api.data[0].img;
-                img1.alt = api.data[0].alt;
-                a1.append(img1);
-                a1.innerHTML = api.data[0].text;
-                a2.href = api.data[1].a;
-                img2.src = api.data[1].img;
-                img2.alt = api.data[1].alt;
-                a2.append(img2);
-                a2.innerHTML = api.data[1].text;
-                l1.append(a1);
-                l2.append(a2);
-                t.append(l1);
-                t.append(l2);
-                return ("finished")
-                
-                
-            })
-            
-
+            console.log(result);
+            //待った後、下記の処理が実施されていく
             /*
+            let array = fetch("https://jsondata.okiba.me/v1/json/i5T50210412160439")
+            .then(response => response.json())
+            .then(response => console.log(response));
+            */
+
             fetch('https://jsondata.okiba.me/v1/json/i5T50210412160439')
-                .then(function(response){
-                    return response.json(); //ここで返すことでjsonになる
-                })
+                .then(response => response.json())
                 .then((data) => {
                     console.log("ここ");
                     console.log(typeof data);
                     console.log(data);
-                    //この場合ここで返るのはオブジェクト
-
-            })
-
-            */
-                
-
-                   
                     
+                    
+                    data = JSON.parse(data);
+                    console.log("です");
+                    console.log(typeof data);
+                    console.log(data);
 
+                    console.log('yo');
+
+                    data.forEach(element => {
+                        console.log(element);
+                        
+                    });
+                    console.log("です");
+                
 
 
             
@@ -125,7 +92,7 @@
             t.append(l2);
             return ("finished")
             */
-        
+        })
             
             
         }catch(error){
